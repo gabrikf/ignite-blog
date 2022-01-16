@@ -1,12 +1,10 @@
 import { GetStaticProps } from 'next';
 import Prismic from '@prismicio/client';
-import { RichText } from 'prismic-dom';
 import { FiCalendar, FiUser } from 'react-icons/fi';
 import { useState } from 'react';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Link from 'next/link';
-import Header from '../components/Header';
 import { getPrismicClient } from '../services/prismic';
 import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
@@ -56,38 +54,35 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
       });
   }
   return (
-    <>
-      <Header />
-      <div className={commonStyles.Container}>
-        {posts.results.map(post => (
-          <div key={post.uid} className={styles.Content}>
-            <Link href="/">
-              <a>
-                <h1>{post.data.title}</h1>
-                <span>{post.data.subtitle}</span>
+    <div className={commonStyles.Container}>
+      {posts.results.map(post => (
+        <div key={post.uid} className={styles.Content}>
+          <Link href={`post/${post.uid}`}>
+            <a>
+              <h1>{post.data.title}</h1>
+              <span>{post.data.subtitle}</span>
+              <div>
                 <div>
-                  <div>
-                    <FiCalendar /> <time>{post.first_publication_date}</time>
-                  </div>
-                  <div>
-                    <FiUser /> {post.data.author}
-                  </div>
+                  <FiCalendar /> <time>{post.first_publication_date}</time>
                 </div>
-              </a>
-            </Link>
-          </div>
-        ))}
-        {posts.next_page && (
-          <button
-            className={styles.Button}
-            type="button"
-            onClick={() => handleLoadPosts(postsPagination.next_page)}
-          >
-            Carregar mais posts
-          </button>
-        )}
-      </div>
-    </>
+                <div>
+                  <FiUser /> {post.data.author}
+                </div>
+              </div>
+            </a>
+          </Link>
+        </div>
+      ))}
+      {posts.next_page && (
+        <button
+          className={styles.Button}
+          type="button"
+          onClick={() => handleLoadPosts(postsPagination.next_page)}
+        >
+          Carregar mais posts
+        </button>
+      )}
+    </div>
   );
 }
 export const getStaticProps: GetStaticProps = async () => {

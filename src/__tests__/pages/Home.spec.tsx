@@ -131,10 +131,12 @@ describe('Home', () => {
 
     render(<App postsPagination={postsPagination} />);
 
-    screen.getByText('Como utilizar Hooks');
-    screen.getByText('Pensando em sincronização em vez de ciclos de vida');
-    screen.getByText('15 mar 2021');
-    screen.getByText('Joseph Oliveira');
+    screen.getByText('Next.JS');
+    screen.getByText(
+      'Novidades na versão 10 e atualização do blog para melhorar a performance'
+    );
+    screen.getByText('15 jan 2021');
+    screen.getByText('Gabriel KF');
 
     screen.getByText('Criando um app CRA do zero');
     screen.getByText(

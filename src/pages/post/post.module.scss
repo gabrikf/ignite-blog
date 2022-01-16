@@ -1,1 +1,41 @@
-// TODO
+.Header {
+  margin-bottom: 4rem;
+  h1 {
+    font-size: 48px;
+    color: var(--snow-50);
+  }
+  > div {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--snow-200);
+    margin-top: 1rem;
+    div {
+      display: flex;
+      align-items: center;
+      svg {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.Content {
+  margin-top: 2rem;
+  line-height: 2rem;
+  font-size: 1.125rem;
+  color: var(--snow-100);
+  h1 {
+    color: var(--snow-50);
+  }
+  p,
+  ul {
+    margin: 1.5rem 0;
+  }
+  ul {
+    padding-left: 1.5rem;
+
+    li {
+      margin: 0.5rem 0;
+    }
+  }
+}
