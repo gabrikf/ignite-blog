@@ -2,6 +2,23 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Inter, sans-serif;
+}
+a,
+button {
+  text-decoration: none;
+  cursor: pointer;
+}
+body {
+  background: var(--gray-900);
 }
 
-// TODO
+//colors
+
+:root {
+  --white: #ffffff;
+  --snow-50: #f8f8f8;
+  --snow-100: #d7d7d7;
+  --gray-900: #282c34;
+  --pink-100: #ff57b2;
+}

@@ -1,1 +1,49 @@
-// TODO
+.Content {
+  & + .Content {
+    margin-top: 2rem;
+  }
+  &:hover h1 {
+    color: var(--pink-100);
+  }
+  h1 {
+    font-size: 28px;
+    color: var(--snow-50);
+    font-weight: bold;
+    display: block;
+    transition: color 0.2s;
+  }
+
+  span {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--snow-100);
+    line-height: 2rem;
+  }
+  div {
+    display: flex;
+    margin-top: 0.5rem;
+    color: var(--snow-100);
+
+    &:first-child {
+      margin-right: 1rem;
+    }
+    div {
+      display: flex;
+      gap: 8px;
+      font-size: 14px;
+    }
+  }
+}
+.Button {
+  margin-top: 1rem;
+  border: 0;
+  background: inherit;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--pink-100);
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
