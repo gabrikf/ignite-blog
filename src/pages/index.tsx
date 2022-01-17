@@ -30,6 +30,7 @@ interface HomeProps {
 
 export default function Home({ postsPagination }: HomeProps): JSX.Element {
   const [posts, setPosts] = useState<PostPagination>(postsPagination);
+
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   function handleLoadPosts(next_page: RequestInfo) {
     fetch(next_page)
@@ -53,6 +54,7 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
         });
       });
   }
+
   return (
     <div className={commonStyles.Container}>
       {posts.results.map(post => (

@@ -197,12 +197,12 @@ describe('Post', () => {
     const getStaticPathsReturn = [
       {
         params: {
-          slug: 'como-utilizar-hooks',
+          slug: 'next.js',
         },
       },
       {
         params: {
-          slug: 'criando-um-app-cra-do-zero',
+          slug: 'mapas-com-react-usando-leaflet',
         },
       },
     ];

@@ -3,6 +3,7 @@ import { ptBR } from 'date-fns/locale';
 import Prismic from '@prismicio/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { RichText } from 'prismic-dom';
+import { useRouter } from 'next/router';
 import { FiCalendar, FiUser, FiClock } from 'react-icons/fi';
 import { getPrismicClient } from '../../services/prismic';
 
@@ -31,6 +32,10 @@ interface PostProps {
 }
 
 export default function Post({ post }: PostProps): JSX.Element {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>Carregando...</div>;
+  }
   const timeReading = post.data.content.map(item => {
     return Math.ceil(item.body.text.split(' ').length / 200);
   });
